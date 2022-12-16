@@ -1,0 +1,13 @@
+---
+- name: Verify that required variables are defined
+  ansible.builtin.assert:
+    that:
+      - "{{ item }}  is defined"
+      - "{{ item }} | length > 0"
+      - "{{ item }} != None"
+    fail_msg: "{{ item }} needs to be set for the role to work"
+    success_msg: "Required variable {{ item }} is defined"
+  changed_when: false
+  diff: false
+  loop:
+    - add_github_hostkeys_users

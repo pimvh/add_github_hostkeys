@@ -1,0 +1,10 @@
+---
+- name: Add github hostkeys to root known_hosts
+  ansible.builtin.known_hosts:
+    name: github.com
+    key: "{{ known_host }}"
+    state: present
+  loop: "{{ fetched_github_hostkeys.stdout_lines }}"
+  loop_control:
+    loop_var: known_host
+  become_user: "{{ user }}"

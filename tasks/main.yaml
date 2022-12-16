@@ -1,0 +1,29 @@
+---
+# tasks file for trustgithub
+- name: Check that required passed variables are defined
+  include_tasks: assert.yaml
+
+- name: Ensure jq is present
+  ansible.builtin.package:
+    name: jq
+    state: present
+  become: true
+
+- name: Ensure Github is present in known_host
+  block:
+    - name: Fetch github hostkeys
+      ansible.builtin.shell: >
+        set -o pipefail && curl --silent https://api.github.com/meta |
+         jq --raw-output '"github.com "+.ssh_keys[]'
+      args:
+        executable: /bin/zsh
+      changed_when: false
+      check_mode: false
+      register: fetched_github_hostkeys
+
+    - name: Add Github known host keys to several users
+      ansible.builtin.include_tasks:
+        file: add_keys_to_user.yaml
+      loop: "{{ add_github_hostkeys_users }}"
+      loop_control:
+        loop_var: "user"
