@@ -19,3 +19,15 @@ galaxy_info:
     - knownhosts
 
 dependencies: []
+
+argument_specs:
+  main:
+    short_description: The main entry point for the add_github_hostkeys role.
+    description: |
+      This entrypoint adds the hostkeys from Github to the global system known_host file.
+    options:
+      add_github_hostkeys_api_endpoint:
+        type: str
+        required: false
+        default: "https://api.github.com/meta"
+        description: "The API endpoint to retrieve Github's known_hostkeys from"

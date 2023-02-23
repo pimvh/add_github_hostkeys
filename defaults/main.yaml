@@ -1,2 +1,2 @@
 ---
-add_github_hostkeys_users: []
+add_github_hostkeys_api_endpoint: "https://api.github.com/meta"

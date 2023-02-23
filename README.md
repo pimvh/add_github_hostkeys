@@ -14,15 +14,7 @@ I found myself repeating this small piece of logic in several playbooks. I thoug
 
 ## Required variables
 
-Review the variables as shown in defaults:
-
-```
-E.g.
-add_github_hostkeys_users:
-- root
-- johndoe
-- plantpotter
-```
+Review the variables as shown in defaults.
 
 The ansible playbook will validate whether the variables exist that you defined before running.
 
@@ -38,4 +30,4 @@ roles:
 
 # TLDR - What will happen if I run this
 
-- Add the hostkeys of GitHub fetch via the API to the users specified in the passed list.
+- Add the hostkeys of GitHub fetch via the API to the systems known_host file (/etc/ssh/ssh_known_hosts) specified in the passed list.

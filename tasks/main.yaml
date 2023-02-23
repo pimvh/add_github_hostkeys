@@ -1,8 +1,4 @@
 ---
-# tasks file for trustgithub
-- name: Check that required passed variables are defined
-  include_tasks: assert.yaml
-
 - name: Ensure jq is present
   ansible.builtin.package:
     name: jq
@@ -13,7 +9,7 @@
   block:
     - name: Fetch github hostkeys
       ansible.builtin.shell: >
-        set -o pipefail && curl --silent https://api.github.com/meta |
+        set -o pipefail && curl --silent {{ add_github_hostkeys_api_endpoint }} |
          jq --raw-output '"github.com "+.ssh_keys[]'
       args:
         executable: /bin/zsh
@@ -21,9 +17,6 @@
       check_mode: false
       register: fetched_github_hostkeys
 
-    - name: Add Github known host keys to several users
+    - name: Add Github known host keys to the system
       ansible.builtin.include_tasks:
-        file: add_keys_to_user.yaml
-      loop: "{{ add_github_hostkeys_users }}"
-      loop_control:
-        loop_var: "user"
+        file: add_keys_to_system.yaml
