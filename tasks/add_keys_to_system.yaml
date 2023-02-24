@@ -4,7 +4,7 @@
     name: github.com
     key: "{{ known_host }}"
     state: present
-    file: /etc/ssh/ssh_known_hosts
+    path: /etc/ssh/ssh_known_hosts
   loop: "{{ fetched_github_hostkeys.stdout_lines }}"
   loop_control:
     loop_var: known_host
