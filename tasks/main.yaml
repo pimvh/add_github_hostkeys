@@ -12,6 +12,8 @@
         set -o pipefail && curl --silent {{ add_github_hostkeys_api_endpoint }} |
          jq --raw-output '"github.com "+.ssh_keys[]'
       changed_when: false
+      args:
+        executable: /bin/bash
       check_mode: false
       register: fetched_github_hostkeys
 
