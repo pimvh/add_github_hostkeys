@@ -3,7 +3,7 @@ galaxy_info:
   author: Pim van Helvoirt
   description: adds the GitHub ssh hostkeys to the SSH known host files.
   license: GPL-3.0-only
-  min_ansible_version: 2.1
+  min_ansible_version: "2.14"
 
   platforms:
     - name: Ubuntu

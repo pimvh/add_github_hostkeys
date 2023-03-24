@@ -1,9 +1,6 @@
 ---
 dependency:
   name: galaxy
-  options:
-    requirements-file: requirements.yaml
-    role-file: requirements.yaml
 driver:
   name: docker
 lint: |
@@ -11,11 +8,20 @@ lint: |
   yamllint .
   ansible-lint
 platforms:
-  - name: "add_github_hostkeys-${image}-${tag}"
-    image: "${namespace:-pimvh}/${image}:${tag}"
-    name: Ubuntu
-    pre_build_image: true
+  - name: Ubuntu
+    image: ubuntu:jammy
+    cmd: /lib/systemd/systemd
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
 provisioner:
   name: ansible
+  host_vars:
+  # setting for the platform instance named 'instance'
+  instance:
+    ansible_user: ansible
 verifier:
-  name: ansible
+  name: testinfra

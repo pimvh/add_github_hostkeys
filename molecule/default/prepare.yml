@@ -1,0 +1,12 @@
+---
+- name: Prepare
+  hosts: all
+
+  tasks:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Install ssh
+      ansible.builtin.package:
+        name: ssh

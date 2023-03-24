@@ -1,7 +1,9 @@
 ---
-- name: Ensure jq is present
+- name: Ensure jq and curl are present
   ansible.builtin.package:
-    name: jq
+    name:
+      - jq
+      - curl
     state: present
   become: true
 

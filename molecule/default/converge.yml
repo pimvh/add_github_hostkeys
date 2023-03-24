@@ -1,7 +1,9 @@
 ---
 - name: Converge
   hosts: all
+  gather_facts: true
+
   tasks:
-    - name: "Include pimvh.github_add_hostkey"
-      include_role:
-        name: "pimvh.github_add_hostkey"
+    - name: "Include pimvh.github_add_hostkeys"
+      ansible.builtin.include_role:
+        name: "add_github_hostkeys"
