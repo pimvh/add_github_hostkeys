@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include pimvh.github_add_hostkey"
+      include_role:
+        name: "pimvh.github_add_hostkey"
