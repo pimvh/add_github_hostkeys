@@ -1,4 +1,5 @@
 ---
+# terraform managed
 dependency:
   name: galaxy
 driver:
@@ -20,7 +21,6 @@ platforms:
 provisioner:
   name: ansible
   host_vars:
-  # setting for the platform instance named 'instance'
   instance:
     ansible_user: ansible
 verifier:
