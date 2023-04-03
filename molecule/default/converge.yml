@@ -4,6 +4,6 @@
   gather_facts: true
 
   tasks:
-    - name: "Include pimvh.github_add_hostkeys"
+    - name: "Include pimvh.add_github_hostkeys"
       ansible.builtin.include_role:
         name: "add_github_hostkeys"
