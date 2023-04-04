@@ -1,5 +1,6 @@
 ---
-# Taken from robertdebock (https://github.com/robertdebock)
+# terraform managed
+# Inspired on robertdebock (https://github.com/robertdebock) and erissysmin (https://github.com/erissysmin)
 
 name: Ansible Molecule
 
