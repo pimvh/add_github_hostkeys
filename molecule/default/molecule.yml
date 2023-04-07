@@ -2,6 +2,8 @@
 # terraform managed
 dependency:
   name: galaxy
+  options:
+    requirements-file: requirements.yml
 driver:
   name: docker
 lint: |
@@ -15,12 +17,11 @@ platforms:
     tmpfs:
       - /run
       - /tmp
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
+    pre_build_image: false
+    override_command: false
 provisioner:
   name: ansible
-  host_vars:
   instance:
     ansible_user: ansible
 verifier:
