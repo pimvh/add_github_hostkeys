@@ -1,0 +1,36 @@
+---
+name: Release main or releases to Ansible Galaxy
+
+on:
+  push:
+    branches:
+      - main
+  release:
+    types: [created, edited, published, released]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      # allows molecule colors to be passed to GitHub Actions
+      PY_COLORS: 1
+      # allows ansible colors to be passed to GitHub Actions
+      ANSIBLE_FORCE_COLOR: 1
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip3 install ansible-galaxy
+
+
+      - name: Publish role to galaxy
+        run: |
+          # repository is name/repo turn into -> name<SPACE>repo
+          ansible-galaxy role import --api-key ${secrets.GALAXY_API_KEY} $(sed -i 's!/! !g' ${github.repository})
