@@ -27,6 +27,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          pip3 install --upgrade pip
           pip3 install ansible-galaxy
 
 
