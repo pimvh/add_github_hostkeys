@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip3 install --upgrade pip
-          pip3 install ansible-galaxy
+          pip3 install ansible
 
 
       - name: Publish role to galaxy
