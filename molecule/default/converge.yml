@@ -13,4 +13,3 @@
     - name: "Include pimvh.add_github_hostkeys"
       ansible.builtin.include_role:
         name: "add_github_hostkeys"
-
