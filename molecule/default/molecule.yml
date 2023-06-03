@@ -8,13 +8,12 @@ driver:
   name: docker
 platforms:
   - name: Ubuntu Jammy
-    image: quay.io/pimvh/molecule-ubuntu-jammy:latest
+    image: quay.io/pimvh/molecule-ubuntu-jammy-jellyfish:latest
     cmd: /lib/systemd/systemd
     tmpfs:
       - /run
       - /tmp
     privileged: true
-    pre_build_image: true
     override_command: false
 provisioner:
   name: ansible
