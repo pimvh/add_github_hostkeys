@@ -1,5 +1,5 @@
-# terraform managed
 ---
+# terraform managed
 dependency:
   name: galaxy
   options:
@@ -7,14 +7,14 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: Ubuntu
-    image: ubuntu:jammy
+  - name: Ubuntu Jammy
+    image: quay.io/pimvh/molecule-ubuntu-jammy:latest
     cmd: /lib/systemd/systemd
     tmpfs:
       - /run
       - /tmp
     privileged: true
-    pre_build_image: false
+    pre_build_image: true
     override_command: false
 provisioner:
   name: ansible
