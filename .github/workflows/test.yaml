@@ -77,8 +77,8 @@ jobs:
       - name: Replace template variables in molecule.yml
         run: |
           sed -i 's/!!IMAGE_NAME/'"$IMAGE_NAME"'/g' molecule/*/molecule.yml
-        with:
-          image_name: ${{ matrix.system.os }}-${{ matrix.system.version }}
+        env:
+          IMAGE_NAME: ${{ matrix.system.os }}-${{ matrix.system.version }}
 
       - name: Run role tests
         run: |
