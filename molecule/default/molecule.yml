@@ -14,8 +14,6 @@ platforms:
       - /run
       - /tmp
     privileged: true
-    pre_build_image: false
-    override_command: false
 provisioner:
   name: ansible
   inventory:
