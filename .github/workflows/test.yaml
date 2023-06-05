@@ -76,11 +76,11 @@ jobs:
 
       - name: Replace template variables in molecule.yml
         run: |
-          sed -i -e 's/!!IMAGE_NAME/'"$IMAGE_NAME"'/g' -e 's/!!IMAGE_ID/'"$IMAGE_ID"'/g' -e 's/!!REGISTRY/'"$REGISTRY"'/g' molecule/*/molecule.yml
+          sed -i -e 's!*IMAGE_NAME*!'"$IMAGE_NAME"'!g' -e 's!*IMAGE_ID*!'"$IMAGE_ID"'!g' -e 's!*REGISTRY*!'"$REGISTRY"'!g' molecule/*/molecule.yml
         env:
           IMAGE_NAME: ${{ matrix.system.os }}-${{ matrix.system.version }}
           IMAGE_ID: molecule-${{ matrix.system.os }}-${{ matrix.system.version }}
-          REGISTRY: quay.io/${{ github.username }}
+          REGISTRY: quay.io/${{ github.repository_owner }}
 
       - name: Run role tests
         run: |
