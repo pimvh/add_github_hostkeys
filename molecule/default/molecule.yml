@@ -7,7 +7,7 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: Ubuntu Jammy
+  - name: ubuntu-jammy-jellyfish
     image: "quay.io/pimvh/molecule-ubuntu-jammy-jellyfish:latest"
     tmpfs:
       - /run
