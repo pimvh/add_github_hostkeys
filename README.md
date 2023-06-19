@@ -1,3 +1,4 @@
+![Molecule test](https://github.com/pimvh/add_github_hostkeys/actions/workflow/test.yaml/badge.svg)
 # Requirements
 
 1. Ansible installed:
