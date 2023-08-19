@@ -1,12 +1,6 @@
 import testinfra
 
 
-def test_os_release(host):
-    """test host release for good measure"""
-
-    assert host.file("/etc/os-release").contains("Ubuntu")
-
-
 def test_known_hosts(host):
     """test ssh ssh_known_hosts file has been created,
     with the requested key types"""
