@@ -1,5 +1,6 @@
 # terraform managed
 ansible==8.0
+ansible-core==2.15.2
 ansible-lint==6.17.1
 molecule==6.0.1
 molecule-plugins[docker]==23.4.0
