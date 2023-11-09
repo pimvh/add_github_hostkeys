@@ -1,6 +1,6 @@
 # terraform managed
-ansible==8.0
-ansible-lint==6.17.1
-molecule==6.0.1
-molecule-plugins[docker]==23.4.0
-pytest-testinfra==7.0.0
+ansible==8.4
+ansible-lint==6.21.1
+molecule==6.0.2
+molecule-plugins[docker]==32.5.0
+pytest-testinfra==9.0.0
