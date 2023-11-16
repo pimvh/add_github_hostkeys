@@ -2,5 +2,5 @@
 ansible==8.4
 ansible-lint==6.21.1
 molecule==6.0.2
-molecule-plugins[docker]==32.5.0
+molecule-plugins[docker]==23.5.0
 pytest-testinfra==9.0.0
